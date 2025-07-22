@@ -23,7 +23,7 @@ const projects = [
     title: "Blackjack Game",
     image: "/images/blackjack.png",
     description: "A browser-based Blackjack game built with JavaScript.",
-    link: "https://puffwya.github.io/",
+    link: "https://puffwya.github.io/BlackJack-Game/",
   },
   {
     title: "Calorie Tracker",
