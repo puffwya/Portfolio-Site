@@ -81,6 +81,43 @@ backend, game development, and more.
           </Card>
         </Grid>
       </Grid>
+
+      <Box
+        component="footer"
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          py: 2,
+          px: 2,
+          textAlign: "center",
+          backgroundColor: "#f5f5f5",
+          boxShadow: "0 -2px 5px rgba(0,0,0,0.1)",
+          zIndex: 1300, // ensures it's above other content
+        }}
+      > 
+
+      <Typography variant="body2" color="text.secondary" gutterBottom>
+          Contact me at: (317) 628-1914 <a href="mailto:puffwya000@gmail.com">puffwya000@gmail.com</a>
+        </Typography>
+        <Typography variant="body2" color="text.secondary" gutterBottom>
+          <a href="https://www.linkedin.com/in/wyatt-puff-6ab51a355/" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>{" "}
+          |{" "}
+          <a href="https://github.com/puffwya" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>{" "}
+          |{" "}
+          <a href="/Wyatt-Puff-Resume-July-2025.pdf" target="_blank" rel="noopener noreferrer" download>
+            Download Resume
+          </a>
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+          Wyatt Puff Portfolio • Built with React & Material UI
+        </Typography>
+       </Box>
     </Container>
   );
 };

@@ -2,11 +2,15 @@ import React from "react";
 import { Button, Container, Typography, Box, Card, CardContent } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useNavigate } from "react-router-dom";
+import HeroSection from './components/HeroSection';
 
 export default function Home() {
   const navigate = useNavigate();
 
   return (
+    <>
+    <HeroSection />
+
     <Container maxWidth="md" sx={{ mt: 8 }}>
       <Box sx={{ textAlign: "center", mb: 6 }}>
         <Typography variant="h3" component="h1" gutterBottom>
@@ -108,6 +112,10 @@ discipline and a commitment continuous improvement in both code and life.
           |{" "}
           <a href="https://github.com/puffwya" target="_blank" rel="noopener noreferrer">
             GitHub
+          </a>{" "}
+          |{" "}
+          <a href="/Wyatt-Puff-Resume-July-2025.pdf" target="_blank" rel="noopener noreferrer" download>
+            Download Resume
           </a>
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
@@ -116,6 +124,7 @@ discipline and a commitment continuous improvement in both code and life.
       </Box>
 
     </Container>
+    </>
   );
 }
 

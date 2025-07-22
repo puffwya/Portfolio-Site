@@ -16,7 +16,7 @@ const projects = [
   {
     title: "Chess Engine",
     image: "images/chess-engine.jpeg",
-    description: "A fully featured chess engine written using C++.",
+    description: "A fully featured chess engine written using C++, HTML, JS, and CSS compiled to WebAssembly for playing in the browser.",
     link: "https://puffwya.github.io/Basic_Chess_Engine/",
   },
   {
@@ -26,10 +26,10 @@ const projects = [
     link: "https://puffwya.github.io/",
   },
   {
-    title: "Unreal Engine FP Demo Game",
-    image: "/images/flashlight-game.png",
-    description: "A first-person game built in Unreal Engine with enemy AI.",
-    link: "https://github.com/puffwya/flashlight-horror",
+    title: "Calorie Tracker",
+    image: "images/calorie-tracker.png",
+    description: "A Django web app that lets users search for food items and see their caloric and nutritional content using the USDA FoodData Central API.",
+    link: "https://calorie-checker-staging.onrender.com/",
   },
 ];
 
@@ -109,6 +109,10 @@ game development, AI, and web applications.
           |{" "}
           <a href="https://github.com/puffwya" target="_blank" rel="noopener noreferrer">
             GitHub
+          </a>{" "}
+          |{" "}
+          <a href="/Wyatt-Puff-Resume-July-2025.pdf" target="_blank" rel="noopener noreferrer" download>
+            Download Resume
           </a>
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
