@@ -31,6 +31,12 @@ const projects = [
     description: "A Django web app that lets users search for food items and see their caloric and nutritional content using the USDA FoodData Central API.",
     link: "https://calorie-checker-staging.onrender.com/",
   },
+  {
+    title: "Pong Game",
+    image: "images/pong-game.png",
+    description: "A basic pong game written using C++, HTML, JS, and CSS compiled to WebAssembly for playing in the browser. Contains Player vs Player and Player Vs AI capabilities.",
+    link: "https://puffwya.github.io/Basic_Pong_Game/",
+  },
 ];
 
 export default function Projects() {
@@ -49,8 +55,8 @@ game development, AI, and web applications.
 
       <Box
         display="flex"
-        flexDirection="column"
-        alignItems="center"
+        flexWrap="wrap"
+        justifyContent="center"
         pb="120px"
         gap={4}
         mt={4}
