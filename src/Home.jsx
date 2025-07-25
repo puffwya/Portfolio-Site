@@ -116,7 +116,12 @@ discipline and a commitment continuous improvement in both code and life.
           GitHub
         </a>{" "}
         |{" "}
-        <a href="/Wyatt-Puff-Resume-July-2025.pdf" target="_blank" rel="noopener noreferrer" download>
+        <a
+          href={`${process.env.PUBLIC_URL}/Wyatt-Puff-Resume-July-2025.pdf`}
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+        >
           Download Resume
         </a>
       </Typography>
