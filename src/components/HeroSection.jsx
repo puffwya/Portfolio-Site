@@ -37,11 +37,12 @@ const HeroSection = () => {
         px: 2,
         background: 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)',
         color: 'white',
+        borderBottom: '2px solid rgba(255, 255, 255, 0.3)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      <Typography variant="h2" sx={{ fontWeight: 'bold', mb: 2 }}>
+      <Typography variant="h2" sx={{ mb: 2 }}>
         Hello my name is Wyatt Puff
       </Typography>
 
