@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
 import React from "react";
-
 import {
   Container,
   Typography,
@@ -10,115 +8,129 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  Chip,
+  Grid,
+  IconButton,
+  Button
 } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 const projects = [
   {
     title: "Chess Engine",
-    image: "images/chess-engine.jpeg",
+    image: `${process.env.PUBLIC_URL}/images/chess-engine.jpeg`,
     description: "A fully featured chess engine written using C++, HTML, JS, and CSS compiled to WebAssembly for playing in the browser.",
     link: "https://puffwya.github.io/Basic_Chess_Engine/",
+    tech: ["C++", "JS", "WebAssembly"],
   },
   {
     title: "Blackjack Game",
-    image: "images/blackjack.png",
+    image: `${process.env.PUBLIC_URL}/images/blackjack.png`,
     description: "A browser-based Blackjack game built with JavaScript.",
     link: "https://puffwya.github.io/BlackJack-Game/",
+    tech: ["JavaScript", "HTML", "CSS"],
   },
   {
     title: "Calorie Tracker",
-    image: "images/calorie-tracker.png",
+    image: `${process.env.PUBLIC_URL}/images/calorie-tracker.png`,
     description: "A Django web app that lets users search for food items and see their caloric and nutritional content using the USDA FoodData Central API.",
     link: "https://calorie-checker-staging.onrender.com/",
+    tech: ["Django", "Python", "API"],
   },
   {
     title: "Pong Game",
-    image: "images/pong-game.png",
-    description: "A basic pong game written using C++, HTML, JS, and CSS compiled to WebAssembly for playing in the browser. Contains Player vs Player and Player Vs AI capabilities.",
+    image: `${process.env.PUBLIC_URL}/images/pong-game.png`,
+    description: "A basic pong game with Player vs Player and Player vs AI capabilities.",
     link: "https://puffwya.github.io/Basic_Pong_Game/",
+    tech: ["C++", "JS", "WebAssembly"],
   },
 ];
 
 export default function Projects() {
   return (
     <Container sx={{ mt: 8, mb: 12 }}>
-      <Box display="flex" justifyContent="left" mb={2}>
+      {/* Back Button */}
+      <Box display="flex" justifyContent="left" mb={3}>
         <Button variant="outlined" component={Link} to="/" color="primary">
           Back to Home Page
         </Button>
       </Box>
 
+      {/* Page Intro */}
       <Typography variant="h6" gutterBottom align="center">
-        Here are some of the projects that I have been working on. They showcase a range of coding skills across 
-game development, AI, and web applications.
+        Here are some of the projects that I have been working on. They showcase a range of coding skills across game development, AI, and web applications.
       </Typography>
 
-      <Box
-        display="flex"
-        flexWrap="wrap"
-        justifyContent="center"
-        pb="120px"
-        gap={4}
-        mt={4}
-      >
+      {/* Projects Grid */}
+      <Grid container spacing={4} sx={{ mt: 2 }}>
         {projects.map((project, index) => (
-          <Card
-            key={index}
-            sx={{ width: "100%", maxWidth: 500 }}
-            elevation={3}
-          >
-            <CardActionArea
-              onClick={() => window.open(project.link, "_blank")}
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card
+              elevation={3}
+              sx={{
+                transition: "transform 0.3s, box-shadow 0.3s",
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
+                },
+              }}
             >
-              <CardMedia
-                component="img"
-                height="200"
-                image={project.image}
-                alt={project.title}
-                sx={{ width: "100%", height: 200, objectFit: "cover" }}
-              />
-              <CardContent>
-                <Typography variant="h5" component="div" gutterBottom>
-                  {project.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {project.description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+              <CardActionArea onClick={() => window.open(project.link, "_blank")}>
+                <CardMedia
+                  component="img"
+                  image={project.image}
+                  alt={project.title}
+                  sx={{ height: 200, objectFit: "cover", borderRadius: 1 }}
+                />
+                <CardContent>
+                  <Typography variant="h5" gutterBottom>
+                    {project.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" paragraph>
+                    {project.description}
+                  </Typography>
+                  {/* Tech Tags */}
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                    {project.tech.map((tech, idx) => (
+                      <Chip key={idx} label={tech} size="small" />
+                    ))}
+                  </Box>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
 
+      {/* Footer */}
       <Box
         component="footer"
         sx={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          py: 2,
-          px: 2,
+          py: 4,
+          mt: 6,
           textAlign: "center",
           backgroundColor: "#f5f5f5",
-          boxShadow: "0 -2px 5px rgba(0,0,0,0.1)",
-          zIndex: 1300, // ensures it's above other content
         }}
       >
         <Typography variant="body2" color="text.secondary" gutterBottom>
-          Contact me at: (317) 628-1914 <a href="mailto:puffwya000@gmail.com">puffwya000@gmail.com</a>
+          Contact me: <a href="mailto:puffwya000@gmail.com">puffwya000@gmail.com</a> | (317) 628-1914
         </Typography>
-        <Typography variant="body2" color="text.secondary" gutterBottom>
-          <a href="https://www.linkedin.com/in/wyatt-puff-6ab51a355/" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>{" "}
-          |{" "}
-          <a href="https://github.com/puffwya" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>{" "}
-          |{" "}
+        <Box sx={{ mb: 1 }}>
+          <IconButton href="https://www.linkedin.com/in/wyatt-puff/" target="_blank">
+            <LinkedInIcon />
+          </IconButton>
+          <IconButton href="https://github.com/puffwya" target="_blank">
+            <GitHubIcon />
+          </IconButton>
+          <IconButton href="mailto:puffwya000@gmail.com">
+            <EmailIcon />
+          </IconButton>
+        </Box>
+        <Typography variant="body2" color="text.secondary">
           <a
-            href={`${process.env.PUBLIC_URL}/Wyatt-Puff-Resume-July-2025.pdf`}
+            href={`${process.env.PUBLIC_URL}/Wyatt-Puff-Resume-2025.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             download
@@ -130,7 +142,6 @@ game development, AI, and web applications.
           Wyatt Puff Portfolio • Built with React & Material UI
         </Typography>
       </Box>
-
     </Container>
   );
 }

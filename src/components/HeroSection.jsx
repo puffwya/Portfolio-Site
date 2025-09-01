@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Fade } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -29,55 +29,100 @@ const HeroSection = () => {
     <Box
       sx={{
         minHeight: '80vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        px: 2,
-        background: 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)',
-        color: 'white',
-        borderBottom: '2px solid rgba(255, 255, 255, 0.3)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      <Typography variant="h2" sx={{ mb: 2 }}>
-        Hello my name is Wyatt Puff
-      </Typography>
-
-      <Typography variant="h5" sx={{ mb: 4 }}>
-        Software Developer • Game Creator • Problem Solver
-      </Typography>
-
-
-      <Box sx={{ width: '100%', maxWidth: 800, mb: 4 }}>
-        <Slider {...settings}>
-          {images.map((src, i) => (
+      {/* Slider */}
+      <Slider {...settings}>
+        {images.map((src, i) => (
+          <Box
+            key={i}
+            sx={{
+              width: '100%',
+              height: '80vh',
+              position: 'relative',
+            }}
+          >
             <Box
-              key={i}
               component="img"
               src={src}
               alt={`Slide ${i + 1}`}
               sx={{
                 width: '100%',
-                height: '400px',
+                height: '100%',
                 objectFit: 'cover',
-                borderRadius: 2,
               }}
             />
-          ))}
-        </Slider>
+          </Box>
+        ))}
+      </Slider>
+
+      {/* Overlay */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          bgcolor: 'rgba(0,0,0,0.45)',
+          zIndex: 1,
+        }}
+      />
+
+      {/* Text and Button */}
+      <Box
+        sx={{
+          position: 'absolute',
+          zIndex: 2,
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          px: 2,
+          maxWidth: 800,
+          width: '100%',
+          textAlign: 'center',
+          color: 'white',
+        }}
+      >
+        <Fade in timeout={1000}>
+          <Typography variant="h2" sx={{ mb: 2 }}>
+            Hello, my name is Wyatt Puff
+          </Typography>
+        </Fade>
+        <Fade in timeout={1500}>
+          <Typography variant="h5" sx={{ mb: 4 }}>
+            Software Engineer • Full Stack Developer • C++ Game Dev Enthusiast
+          </Typography>
+        </Fade>
+        <Fade in timeout={2000}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={() => navigate('/projects')}
+            sx={{
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'scale(1.05)',
+                boxShadow: '0 6px 15px rgba(0,0,0,0.3)',
+              },
+            }}
+          >
+            View My Projects
+          </Button>
+        </Fade>
       </Box>
 
-      <Button
-        variant="contained"
-        color="primary"
-        size="large"
-        onClick={() => navigate('/projects')}
-      >
-        View My Projects
-      </Button>
+      {/* Bounce animation */}
+      <style>{`
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+          40% { transform: translateX(-50%) translateY(-10px); }
+          60% { transform: translateX(-50%) translateY(-5px); }
+        }
+      `}</style>
     </Box>
   );
 };
