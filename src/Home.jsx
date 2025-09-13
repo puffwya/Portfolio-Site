@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Typography, Box, Card, CardContent, LinearProgress, Avatar, Grid, IconButton } from "@mui/material";
+import { Button, Container, Typography, Box, Card, CardContent, LinearProgress, Avatar, IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
@@ -57,6 +57,11 @@ export default function Home() {
     },
     {
       title: "Deans List",
+      organization: "Indiana State University",
+      year: "2020-2025",
+    },
+    {
+      title: "Summa Cum Laude", 
       organization: "Indiana State University",
       year: "2020-2025",
     },

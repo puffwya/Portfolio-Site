@@ -60,7 +60,7 @@ export default function Projects() {
 
       {/* Page Intro */}
       <Typography variant="h6" gutterBottom align="center">
-        Here are some of the projects that I have been working on. They showcase a range of coding skills across game development, AI, and web applications.
+        Here are some of the projects that I have been working on. They showcase a range of coding skills across game development, AI, and full stack web applications.
       </Typography>
 
       {/* Projects Grid */}
