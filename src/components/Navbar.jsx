@@ -14,7 +14,6 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 
-// ================= NAV ITEMS =================
 const navItems = [
   { label: "Software", id: "software" },
   { label: "Game Dev", id: "gamedev" },
@@ -33,7 +32,6 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
-  // ================= SCROLL TO TOP =================
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setMobileOpen(false);
@@ -48,9 +46,7 @@ export default function Navbar() {
         const section = document.getElementById(item.id);
         if (section) {
           const rect = section.getBoundingClientRect();
-          if (rect.top <= 120) {
-            current = item.id;
-          }
+          if (rect.top <= 120) current = item.id;
         }
       });
 
@@ -75,7 +71,7 @@ export default function Navbar() {
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
 
-          {/* ================= BRAND (CLICKABLE) ================= */}
+          {/* ================= BRAND ================= */}
           <Typography
             role="button"
             tabIndex={0}
@@ -86,8 +82,8 @@ export default function Navbar() {
               letterSpacing: "-0.3px",
               cursor: "pointer",
               fontSize: "1.05rem",
-              transition: "0.2s ease",
               userSelect: "none",
+              transition: "0.2s ease",
               "&:hover": { opacity: 0.7 },
             }}
           >
@@ -95,29 +91,52 @@ export default function Navbar() {
           </Typography>
 
           {/* ================= DESKTOP NAV ================= */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5 }}>
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                sx={{
-                  textTransform: "none",
-                  fontSize: "0.85rem",
-                  borderRadius: 999,
-                  px: 1.5,
-                  py: 0.8,
-                  color: activeSection === item.id ? "#000" : "#666",
-                  fontWeight: activeSection === item.id ? 600 : 400,
-                  backgroundColor:
-                    activeSection === item.id ? "#f2f2f2" : "transparent",
-                  "&:hover": {
-                    backgroundColor: "#f2f2f2",
-                  },
-                }}
-              >
-                {item.label}
-              </Button>
-            ))}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+
+              return (
+                <Button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  disableRipple
+                  sx={{
+                    position: "relative",
+                    textTransform: "none",
+                    fontSize: "0.85rem",
+                    color: "#444",
+                    fontWeight: 400,
+                    borderRadius: 0,
+                    px: 1.5,
+                    py: 1,
+                    minWidth: "auto",
+
+                    // hover effect (subtle, no box)
+                    "&:hover": {
+                      backgroundColor: "transparent",
+                      opacity: 0.75,
+                    },
+
+                    // underline animation
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      left: 0,
+                      bottom: 4,
+                      height: "2px",
+                      width: isActive ? "100%" : "0%",
+                      backgroundColor: "#000",
+                      transition: "width 0.25s ease",
+                      borderRadius: 2,
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
+              );
+            })}
+
           </Box>
 
           {/* ================= MOBILE MENU ================= */}
@@ -138,7 +157,6 @@ export default function Navbar() {
         onClose={() => setMobileOpen(false)}
       >
         <Box sx={{ width: 250, pt: 2 }}>
-
           <List>
             {navItems.map((item) => (
               <ListItemButton
@@ -150,7 +168,6 @@ export default function Navbar() {
               </ListItemButton>
             ))}
           </List>
-
         </Box>
       </Drawer>
     </>
