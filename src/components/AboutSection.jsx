@@ -3,89 +3,93 @@ import { Box, Typography, Card, CardContent, Chip, Stack } from "@mui/material";
 
 export default function AboutSection() {
   return (
-    <Box id="about" sx={{ py: 10, px: 12 }}>
+    <Box id="about" sx={{ py: 10, px: { xs: 2, md: 4 } }}>
 
       <Box sx={{ maxWidth: 900, mx: "auto" }}>
 
-      {/* ================= TITLE ================= */}
-      <Typography variant="h4" align="center" gutterBottom>
-        About Me
-      </Typography>
+        {/* ================= TITLE ================= */}
+        <Typography variant="h4" align="center" gutterBottom>
+          About Me
+        </Typography>
 
-      <Typography
-        variant="body1"
-        color="text.secondary"
-        align="center"
-        sx={{ mb: 5, maxWidth: 650, mx: "auto" }}
-      >
-        Engineer, former Division I athlete, and systems-oriented builder focused on software, structure, 
-and problem solving.
-      </Typography>
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          align="center"
+          sx={{ mb: 5, maxWidth: 700, mx: "auto" }}
+        >
+          Engineer, former Division I athlete, and systems-oriented builder focused on structure,
+          performance, and problem solving across software systems.
+        </Typography>
 
-      {/* ================= MAIN CARD ================= */}
-      <Card sx={{ p: 2 }}>
-        <CardContent>
+        {/* ================= MAIN CARD ================= */}
+        <Card sx={{ p: 2 }}>
+          <CardContent>
 
-          {/* ================= BACKGROUND ================= */}
-          <Typography variant="h6" gutterBottom>
-            Background
-          </Typography>
+            {/* ================= BACKGROUND ================= */}
+            <Typography variant="h6" gutterBottom>
+              Background
+            </Typography>
 
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            I recently graduated from Indiana State University with a Bachelor’s in Computer Science,
-            finishing summa cum laude with a 3.93 GPA. Alongside academics, I competed as a Division I
-            track and field athlete, which shaped my discipline, consistency, and ability to perform under 
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+              I recently graduated from Indiana State University with a Bachelor’s in Computer Science,
+              finishing summa cum laude with a 3.93 GPA. Outside of academics, I competed as a Division I
+              track and field athlete, which reinforced discipline, consistency, and performance under 
 pressure.
-          </Typography>
+            </Typography>
 
-          {/* ================= MINDSET ================= */}
-          <Typography variant="h6" gutterBottom>
-            Engineering Mindset
-          </Typography>
+            {/* ================= ENGINEERING MINDSET ================= */}
+            <Typography variant="h6" gutterBottom>
+              Engineering Mindset
+            </Typography>
 
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            My interests sit at the intersection of systems, software engineering, and applied 
-computation.
-            I enjoy building projects that emphasize structure, performance, and solving problems across 
-multiple layers of a system.
-          </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+              I tend to think in systems rather than features. I enjoy building software where 
+architecture,
+              data flow, and performance matter just as much as functionality—whether that’s low-level 
+engines,
+              backend APIs, or applied machine learning pipelines.
+            </Typography>
 
-          {/* ================= EXPERIENCE ================= */}
-          <Typography variant="h6" gutterBottom>
-            Professional Growth
-          </Typography>
+            {/* ================= WHAT DRIVES ME ================= */}
+            <Typography variant="h6" gutterBottom>
+              What I Focus On
+            </Typography>
 
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            I’ve also worked in instructional and freelance roles that strengthened my communication,
-            collaboration, and ability to work with others in technical environments.
-          </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+              My work gravitates toward systems that connect multiple layers—computation, data, and user 
+interaction.
+              I’m especially interested in building tools that analyze, simulate, or improve real-world 
+performance.
+            </Typography>
 
-          {/* ================= HIGHLIGHTS ================= */}
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Highlights
-          </Typography>
+            {/* ================= HIGHLIGHTS ================= */}
+            <Typography variant="h6" gutterBottom sx={{ mt: 1 }}>
+              Highlights
+            </Typography>
 
-          <Box sx={{ mt: 2 }}>
-            <Stack
-              direction="row"
-              spacing={1}
-              sx={{
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: 1,
-              }}
-            >
-              <Chip label="Summa Cum Laude (3.93 GPA)" />
-              <Chip label="Division I Track & Field Athlete" />
-              <Chip label="Systems-Oriented Engineering Mindset" />
-              <Chip label="Problem Solving Focus" />
-              <Chip label="Communication & Collaboration" />
-            </Stack>
-          </Box>
+            <Box sx={{ mt: 2 }}>
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  gap: 1,
+                }}
+              >
+                <Chip label="Summa Cum Laude (3.93 GPA)" />
+                <Chip label="Division I Track & Field Athlete" />
+                <Chip label="Systems & Architecture Focus" />
+                <Chip label="Low-Level + Full-Stack Experience" />
+                <Chip label="Applied ML / Computer Vision Interest" />
+              </Stack>
+            </Box>
 
-        </CardContent>
-      </Card>
-    </Box>
+          </CardContent>
+        </Card>
+
+      </Box>
     </Box>
   );
 }
