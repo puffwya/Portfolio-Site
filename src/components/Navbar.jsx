@@ -1,106 +1,140 @@
-import React from "react";
-import { AppBar, Toolbar, Button, Typography, Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Typography,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
+
+import MenuIcon from "@mui/icons-material/Menu";
+
+// ================= NAV ITEMS (MOVED OUTSIDE COMPONENT) =================
+const navItems = [
+  { label: "Software", id: "software" },
+  { label: "Game Dev", id: "gamedev" },
+  { label: "About", id: "about" },
+  { label: "Experience", id: "experience" },
+  { label: "Education", id: "education" },
+  { label: "Certs", id: "certifications" },
+];
 
 export default function Navbar() {
+
+  const [activeSection, setActiveSection] = useState("software");
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMobileOpen(false); // close drawer on click
   };
 
+  // ================= SCROLL TRACKING =================
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = "software";
+
+      navItems.forEach((item) => {
+        const section = document.getElementById(item.id);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+
+          if (rect.top <= 120) {
+            current = item.id;
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <AppBar
-      position="sticky"
-      elevation={1}
-      sx={{
-        backgroundColor: "white",
-        color: "black",
-        borderBottom: "1px solid #eee",
-      }}
-    >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+    <>
+      <AppBar
+        position="sticky"
+        elevation={0}
+        sx={{
+          backgroundColor: "rgba(255,255,255,0.85)",
+          backdropFilter: "blur(10px)",
+          color: "black",
+          borderBottom: "1px solid #eee",
+        }}
+      >
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
 
-        {/* LEFT: Brand */}
-        <Typography
-          variant="h6"
-          fontWeight="bold"
-          sx={{
-            letterSpacing: 0.5,
-          }}
-        >
-          Wyatt Puff
-        </Typography>
+          {/* ================= BRAND ================= */}
+          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+            Wyatt Puff
+          </Typography>
 
-        {/* RIGHT: Nav */}
-        <Box sx={{ display: "flex", gap: 1 }}>
+          {/* ================= DESKTOP NAV ================= */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5 }}>
+            {navItems.map((item) => (
+              <Button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                sx={{
+                  textTransform: "none",
+                  fontSize: "0.85rem",
+                  borderRadius: 999,
+                  px: 1.5,
+                  py: 0.8,
+                  color: activeSection === item.id ? "#000" : "#666",
+                  fontWeight: activeSection === item.id ? 600 : 400,
+                  backgroundColor:
+                    activeSection === item.id ? "#f2f2f2" : "transparent",
+                  "&:hover": {
+                    backgroundColor: "#f2f2f2",
+                  },
+                }}
+              >
+                {item.label}
+              </Button>
+            ))}
+          </Box>
 
-          <Button
-            onClick={() => scrollTo("software")}
-            sx={{
-              textTransform: "none",
-              borderRadius: 999,
-              px: 2,
-            }}
+          {/* ================= MOBILE MENU ICON ================= */}
+          <IconButton
+            sx={{ display: { xs: "block", md: "none" } }}
+            onClick={() => setMobileOpen(true)}
           >
-            Software Dev
-          </Button>
+            <MenuIcon />
+          </IconButton>
 
-          <Button
-            onClick={() => scrollTo("gamedev")}
-            sx={{
-              textTransform: "none",
-              borderRadius: 999,
-              px: 2,
-            }}
-          >
-            Game Dev
-          </Button>
+        </Toolbar>
+      </AppBar>
 
-          <Button
-            onClick={() => scrollTo("about")}
-            sx={{
-              textTransform: "none",
-              borderRadius: 999,
-              px: 2,
-            }}
-          >
-            About
-          </Button>
+      {/* ================= MOBILE DRAWER ================= */}
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+      >
+        <Box sx={{ width: 250, pt: 2 }}>
 
-          <Button
-            onClick={() => scrollTo("experience")}
-            sx={{
-              textTransform: "none",
-              borderRadius: 999,
-              px: 2,
-            }}
-          > 
-            Experience
-          </Button>
-
-          <Button
-            onClick={() => scrollTo("education")}
-            sx={{
-              textTransform: "none",
-              borderRadius: 999,
-              px: 2,
-            }}
-          > 
-            Education
-          </Button>
-
-          <Button
-            onClick={() => scrollTo("certifications")}
-            sx={{
-              textTransform: "none",
-              borderRadius: 999,
-              px: 2,
-            }} 
-          >
-            Certifications
-          </Button>
+          <List>
+            {navItems.map((item) => (
+              <ListItemButton
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                selected={activeSection === item.id}
+              >
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            ))}
+          </List>
 
         </Box>
-
-      </Toolbar>
-    </AppBar>
+      </Drawer>
+    </>
   );
 }
