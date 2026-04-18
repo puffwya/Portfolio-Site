@@ -10,223 +10,213 @@ export default function GameDevSection() {
         Game Development
       </Typography>
 
-      <Typography variant="body1" align="center" color="text.secondary" sx={{ mb: 6 }}>
-        Systems-focused game development projects spanning custom engines, AI, rendering, and interactive 
-simulations.
+      <Typography
+        variant="body1"
+        align="center"
+        color="text.secondary"
+        sx={{ mb: 6, maxWidth: 700, mx: "auto" }}
+      >
+        Systems-focused game development spanning custom engines, AI systems, rendering pipelines,
+        and interactive simulations.
       </Typography>
 
       {/* ================= FEATURED PROJECT ================= */}
-<Card sx={{ maxWidth: 1200, mx: "auto", mb: 6, p: 2 }}>
-  <CardContent>
+      <Card sx={{ maxWidth: 1200, mx: "auto", mb: 6, p: 2 }}>
+        <CardContent>
 
-    {/* ================= HEADER ================= */}
-    <Typography variant="h3" gutterBottom>
-      FurySyrge — Custom 2.5D Game Engine
-    </Typography>
+          <Typography variant="h4" gutterBottom>
+            FurySyrge — Custom 2.5D Game Engine
+          </Typography>
 
-    <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-      A fully custom game engine built in C++ using SDL2, featuring BSP-based rendering,
-      AI systems, and a complete gameplay pipeline.
-    </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+            Custom C++ engine built with SDL2 featuring BSP-based rendering, gameplay systems,
+            and full distribution pipeline.
+          </Typography>
 
-    {/* ================= MAIN LAYOUT (VIDEO + DETAILS) ================= */}
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        gap: 3,
-        alignItems: "flex-start",
-        mb: 3,
-      }}
-    >
-
-      {/* VIDEO (LEFT / TOP) */}
-      <Box
-        sx={{
-          flex: 2,
-          borderRadius: 2,
-          overflow: "hidden",
-          backgroundColor: "#000",
-        }}
-      >
-        <iframe
-          width="100%"
-          height="400"
-          src="https://www.youtube.com/embed/GSVh0Qh_kss"
-          title="FurySyrge Demo"
-          allowFullScreen
-        />
-      </Box>
-
-      {/* DETAILS (RIGHT / BOTTOM) */}
-      <Box sx={{ flex: 1 }}>
-
-        {/* Tech stack */}
-        <Stack direction="row" spacing={1} sx={{ mb: 2, flexWrap: "wrap" }}>
-          <Chip label="C++" />
-          <Chip label="SDL2" />
-          <Chip label="BSP Rendering" />
-          <Chip label="Game Engine" />
-          <Chip label="AI Systems" />
-          <Chip label="macOS Build" />
-        </Stack>
-
-        {/* Key points */}
-        <ul style={{ paddingLeft: "18px" }}>
-          <li>BSP-based rendering pipeline using spatial segmentation</li>
-          <li>Custom AI, collision, and player health systems</li>
-          <li>Full asset pipeline (visuals + audio created from scratch)</li>
-          <li>Packaged macOS builds (Intel + Apple Silicon)</li>
-        </ul>
-
-        {/* CTA BUTTON */}
-        <Box sx={{ mt: 2 }}>
-          <Button
-            variant="contained"
-            href="https://github.com/puffwya/zwave/releases"
-            target="_blank"
+          {/* ================= RESPONSIVE MAIN LAYOUT ================= */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              gap: 3,
+              alignItems: "flex-start",
+              mb: 3,
+            }}
           >
-            Download / View Release
-          </Button>
-        </Box>
 
-      </Box>
-    </Box>
+            {/* VIDEO */}
+            <Box
+              sx={{
+                flex: 2,
+                width: "100%",
+                borderRadius: 2,
+                overflow: "hidden",
+                backgroundColor: "#000",
+                height: { xs: 220, sm: 300, md: 400 },
+              }}
+            >
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/GSVh0Qh_kss"
+                title="FurySyrge Demo"
+                allowFullScreen
+                style={{ border: 0 }}
+              />
+            </Box>
 
-    {/* ================= FOOTER SIGNAL ================= */}
-    <Typography variant="body2" color="text.secondary">
-      Demonstrates systems-level engine design, real-time rendering architecture, and full
-      pipeline ownership from development to distribution.
-    </Typography>
+            {/* DETAILS */}
+            <Box sx={{ flex: 1, width: "100%" }}>
 
-  </CardContent>
-</Card>
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{
+                  mb: 2,
+                  flexWrap: "wrap",
+                  gap: 1,
+                }}
+              >
+                <Chip label="C++" />
+                <Chip label="SDL2" />
+                <Chip label="BSP Rendering" />
+                <Chip label="Game Engine" />
+                <Chip label="AI Systems" />
+                <Chip label="macOS Build" />
+              </Stack>
 
-      {/* ================= SECONDARY PROJECT ================= */}
-<Card sx={{ maxWidth: 900, mx: "auto", mb: 6, p: 2 }}>
-  <CardContent>
+              <Box component="ul" sx={{ pl: 2 }}>
+                <li>BSP-based rendering pipeline using spatial segmentation</li>
+                <li>Custom AI, collision, and player health systems</li>
+                <li>Full asset pipeline (visual + audio from scratch)</li>
+                <li>Packaged macOS builds (Intel + Apple Silicon)</li>
+              </Box>
 
-    {/* ================= HEADER ================= */}
-    <Typography variant="h5" gutterBottom>
-      Chess Engine — C++ & WebAssembly
-    </Typography>
+              <Box sx={{ mt: 2 }}>
+                <Button
+                  fullWidth={{ xs: true, md: false }}
+                  variant="contained"
+                  href="https://github.com/puffwya/zwave/releases"
+                  target="_blank"
+                >
+                  View Release
+                </Button>
+              </Box>
 
-    <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-      A fully functional chess engine built in C++ with complete rule enforcement,
-      AI decision-making, and browser deployment via WebAssembly.
-    </Typography>
+            </Box>
+          </Box>
 
-    {/* ================= TECH STACK ================= */}
-    <Stack direction="row" spacing={1} sx={{ mb: 2, flexWrap: "wrap" }}>
-      <Chip label="C++" />
-      <Chip label="WebAssembly" />
-      <Chip label="Game AI" />
-      <Chip label="Rule Engine" />
-      <Chip label="Browser Integration" />
-    </Stack>
+          <Typography variant="body2" color="text.secondary">
+            Systems-level engine architecture with real-time rendering and full lifecycle deployment.
+          </Typography>
 
-    {/* ================= CONTENT LAYOUT ================= */}
-    <Box sx={{ mb: 2 }}>
+        </CardContent>
+      </Card>
 
-      <ul style={{ paddingLeft: "18px" }}>
-        <li>Implemented full legal move generation and rule validation (check, checkmate, castling, etc.)</li>
-        <li>Built AI opponent that selects moves programmatically</li>
-        <li>Integrated engine into browser using WebAssembly for real-time play</li>
-        <li>Structured architecture to support minimax + alpha-beta pruning expansion</li>
-      </ul>
+      {/* ================= CHESS ENGINE ================= */}
+      <Card sx={{ maxWidth: 900, mx: "auto", mb: 6, p: 2 }}>
+        <CardContent>
 
-    </Box>
+          <Typography variant="h5" gutterBottom>
+            Chess Engine — C++ & WebAssembly
+          </Typography>
 
-    {/* ================= CTA ================= */}
-    <Box sx={{ mt: 2 }}>
-      <Button
-        variant="contained"
-        href="https://puffwya.github.io/Basic_Chess_Engine/"
-        target="_blank"
-      >
-        Play Live / View Project
-      </Button>
-    </Box>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+            Fully functional chess engine with rule enforcement, AI move generation, and browser-based 
+gameplay.
+          </Typography>
 
-    {/* ================= FOOTER SIGNAL ================= */}
-    <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
-      Demonstrates algorithmic thinking, rule system design, and low-level-to-web integration via WebAssembly.
-    </Typography>
+          <Stack direction="row" spacing={1} sx={{ mb: 2, flexWrap: "wrap" }}>
+            <Chip label="C++" />
+            <Chip label="WebAssembly" />
+            <Chip label="Game AI" />
+            <Chip label="Rule Engine" />
+            <Chip label="Browser Integration" />
+          </Stack>
 
-  </CardContent>
-</Card>
+          <Box component="ul" sx={{ pl: 2 }}>
+            <li>Full legal move generation and rule validation (check, castling, etc.)</li>
+            <li>AI opponent with programmatic move selection</li>
+            <li>WebAssembly integration for browser execution</li>
+            <li>Architecture designed for minimax + alpha-beta expansion</li>
+          </Box>
 
-      {/* ================= SUPPORTING PROJECTS ================= */}
-<Card sx={{ maxWidth: 900, mx: "auto", p: 2 }}>
-  <CardContent>
+          <Box sx={{ mt: 2 }}>
+            <Button
+              variant="contained"
+              href="https://puffwya.github.io/Basic_Chess_Engine/"
+              target="_blank"
+            >
+              Play Live
+            </Button>
+          </Box>
 
-    <Typography variant="h6" gutterBottom>
-      Additional Game Projects
-    </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+            Demonstrates algorithm design, rule systems, and low-level to web execution via WebAssembly.
+          </Typography>
 
-    <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-      Smaller interactive games demonstrating fundamentals in physics, state management, and gameplay logic.
-    </Typography>
+        </CardContent>
+      </Card>
 
-    {/* ================= GRID ================= */}
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      {/* ================= SMALLER PROJECTS ================= */}
+      <Card sx={{ maxWidth: 900, mx: "auto", p: 2 }}>
+        <CardContent>
 
-      {/* PACMAN */}
-      <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 2 }}>
-        <Typography variant="subtitle1" fontWeight="bold">
-          Pac-Man Clone (Python / Pygame)
-        </Typography>
+          <Typography variant="h6" gutterBottom>
+            Additional Game Projects
+          </Typography>
 
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          Full arcade-style implementation with enemy pathing and collision systems.
-        </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+            Smaller systems-focused games demonstrating physics, state management, and gameplay logic.
+          </Typography>
 
-      </Box>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
 
-      {/* PONG */}
-      <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 2 }}>
-        <Typography variant="subtitle1" fontWeight="bold">
-          Pong (C++)
-        </Typography>
+            <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 2 }}>
+              <Typography fontWeight="bold">Pac-Man Clone (Python / Pygame)</Typography>
+              <Typography variant="body2" color="text.secondary">
+                Enemy pathing, collision systems, and full arcade gameplay loop.
+              </Typography>
+            </Box>
 
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          Classic arcade game with physics-based ball movement and scoring system.
-        </Typography>
+            <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 2 }}>
+              <Typography fontWeight="bold">Pong (C++)</Typography>
+              <Typography variant="body2" color="text.secondary">
+                Physics-based ball movement and scoring system.
+              </Typography>
 
-        <Button
-          size="small"
-          variant="outlined"
-          href="https://puffwya.github.io/Basic_Pong_Game/"
-          target="_blank"
-        >
-          Play / View
-        </Button>
-      </Box>
+              <Button
+                size="small"
+                variant="outlined"
+                href="https://puffwya.github.io/Basic_Pong_Game/"
+                target="_blank"
+                sx={{ mt: 1 }}
+              >
+                Play
+              </Button>
+            </Box>
 
-      {/* BLACKJACK */}
-      <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 2 }}>
-        <Typography variant="subtitle1" fontWeight="bold">
-          Blackjack (JavaScript)
-        </Typography>
+            <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 2 }}>
+              <Typography fontWeight="bold">Blackjack (JavaScript)</Typography>
+              <Typography variant="body2" color="text.secondary">
+                State-driven card game with interactive UI logic.
+              </Typography>
 
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          Interactive card game with state management and UI logic.
-        </Typography>
+              <Button
+                size="small"
+                variant="outlined"
+                href="https://puffwya.github.io/BlackJack-Game/"
+                target="_blank"
+                sx={{ mt: 1 }}
+              >
+                Play
+              </Button>
+            </Box>
 
-        <Button
-          size="small"
-          variant="outlined"
-          href="https://puffwya.github.io/BlackJack-Game/"
-          target="_blank"
-        >
-          Play / View
-        </Button>
-      </Box>
+          </Box>
 
-    </Box>
-
-  </CardContent>
-</Card>
+        </CardContent>
+      </Card>
 
     </Box>
   );
