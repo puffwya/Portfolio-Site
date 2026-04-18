@@ -14,7 +14,7 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 
-// ================= NAV ITEMS (MOVED OUTSIDE COMPONENT) =================
+// ================= NAV ITEMS =================
 const navItems = [
   { label: "Software", id: "software" },
   { label: "Game Dev", id: "gamedev" },
@@ -25,13 +25,18 @@ const navItems = [
 ];
 
 export default function Navbar() {
-
   const [activeSection, setActiveSection] = useState("software");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setMobileOpen(false); // close drawer on click
+    setMobileOpen(false);
+  };
+
+  // ================= SCROLL TO TOP =================
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setMobileOpen(false);
   };
 
   // ================= SCROLL TRACKING =================
@@ -43,7 +48,6 @@ export default function Navbar() {
         const section = document.getElementById(item.id);
         if (section) {
           const rect = section.getBoundingClientRect();
-
           if (rect.top <= 120) {
             current = item.id;
           }
@@ -71,8 +75,22 @@ export default function Navbar() {
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
 
-          {/* ================= BRAND ================= */}
-          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+          {/* ================= BRAND (CLICKABLE) ================= */}
+          <Typography
+            role="button"
+            tabIndex={0}
+            onClick={scrollToTop}
+            onKeyDown={(e) => e.key === "Enter" && scrollToTop()}
+            sx={{
+              fontWeight: 700,
+              letterSpacing: "-0.3px",
+              cursor: "pointer",
+              fontSize: "1.05rem",
+              transition: "0.2s ease",
+              userSelect: "none",
+              "&:hover": { opacity: 0.7 },
+            }}
+          >
             Wyatt Puff
           </Typography>
 
@@ -102,7 +120,7 @@ export default function Navbar() {
             ))}
           </Box>
 
-          {/* ================= MOBILE MENU ICON ================= */}
+          {/* ================= MOBILE MENU ================= */}
           <IconButton
             sx={{ display: { xs: "block", md: "none" } }}
             onClick={() => setMobileOpen(true)}
