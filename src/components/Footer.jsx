@@ -94,7 +94,7 @@ export default function Footer() {
         <Button
           variant="contained"
           startIcon={<DescriptionIcon />}
-          href={`${process.env.PUBLIC_URL}/Wyatt_Puff_April_2026_Resume.pdf`}
+          href={`${process.env.PUBLIC_URL}/Wyatt_Puff_May_2026_Resume.pdf`}
           target="_blank"
           sx={{
             borderRadius: 999,
