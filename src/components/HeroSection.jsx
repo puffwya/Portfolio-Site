@@ -89,7 +89,7 @@ export default function HeroSection() {
             color="text.secondary"
             sx={{ mt: 2, fontWeight: 400 }}
           >
-            Systems Engineer • Game Engine Developer • Applied ML Builder
+            Full-Stack Software Engineer • Backend Systems • C# / ASP.NET Core
           </Typography>
 
           <Typography
@@ -102,9 +102,9 @@ export default function HeroSection() {
               lineHeight: 1.7,
             }}
           >
-            I build low-level systems and full-stack applications—from custom
-            game engines and WebAssembly systems to backend APIs and ML-driven
-            computer vision pipelines.
+            I build scalable full-stack applications and systems-focused software using
+            technologies like C#, ASP.NET Core, React, and SQL while also exploring
+            lower-level systems programming, and ML-driven computer vision projects.
           </Typography>
 
           {/* SKILLS */}
@@ -117,10 +117,10 @@ export default function HeroSection() {
               gap: 1,
             }}
           >
-            <Chip label="C++ Systems" />
-            <Chip label="Backend APIs" />
-            <Chip label="WebAssembly" />
-            <Chip label="Computer Vision" />
+            <Chip label="C# / ASP.NET Core" />
+            <Chip label="React + REST APIs" />
+            <Chip label="SQL / Entity Framework" />
+            <Chip label="Systems Programming" />
           </Box>
 
           {/* CTA */}
