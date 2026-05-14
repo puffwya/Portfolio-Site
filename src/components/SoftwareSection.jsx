@@ -125,7 +125,7 @@ export default function SoftwareSection() {
                 </li>
 
                 <li>
-                  Deployed React frontend via GitHub Pages and containerized ASP.NET backend through Docker + Render
+                  Deployed React frontend via GitHub Pages and containerized ASP.NET backend through Docker & Render
                 </li>
               </ul>
 
