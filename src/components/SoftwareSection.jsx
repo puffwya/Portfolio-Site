@@ -50,7 +50,7 @@ export default function SoftwareSection() {
               lineHeight: 1.2,
             }}
           >
-            Project Management Platform
+            Workflow Management Platform
           </Typography>
 
           <Typography
@@ -62,9 +62,9 @@ export default function SoftwareSection() {
               lineHeight: 1.7,
             }}
           >
-            Full-stack project management platform built with ASP.NET Core and React,
-            featuring role-based authorization, structured task workflows, REST APIs,
-            and production-style deployment architecture.
+            Full-stack SaaS-style workflow management platform built with ASP.NET Core and React, featuring JWT 
+            authentication, role-based access control, project/task lifecycle management, audit logging, and 
+            production-style deployment architecture.
           </Typography>
 
           {/* ================= MAIN LAYOUT ================= */}
@@ -94,36 +94,38 @@ export default function SoftwareSection() {
                 <Chip label="ASP.NET Core" />
                 <Chip label="React" />
                 <Chip label="Entity Framework" />
-                <Chip label="SQLite" />
+                <Chip label="PostgreSQL" />
                 <Chip label="REST APIs" />
                 <Chip label="Docker" />
+                <Chip label="JWT Auth" />
                 <Chip label="Render Deployment" />
+                <Chip label="GitHub Pages" />
               </Stack>
 
               {/* PROJECT DETAILS */}
               <ul style={{ paddingLeft: "20px", marginTop: 0 }}>
                 <li>
-                  Built full-stack task and project workflow platform with authenticated user access
+                  Built full-stack workflow management platform with JWT-authenticated user access and protected routes
                 </li>
 
                 <li>
-                  Implemented role-based authorization and protected API endpoints
+                  Implemented role-based authorization system supporting Admin, Manager, and Employee permissions
                 </li>
 
                 <li>
-                  Designed normalized relational database schema using Entity Framework ORM
+                  Designed relational PostgreSQL schema using Entity Framework Core with normalized project, task, and activity relationships
                 </li>
 
                 <li>
-                  Developed RESTful backend APIs supporting task management and workflow operations
+                  Developed RESTful backend APIs supporting project management, task workflows, user assignment, and status transitions
                 </li>
 
                 <li>
-                  Added audit logging and structured backend validation for data integrity
+                  Added audit logging, validation rules, task lifecycle constraints, and project archival functionality
                 </li>
 
                 <li>
-                  Deployed React frontend via GitHub Pages and containerized ASP.NET backend with Docker + Render
+                  Deployed React frontend via GitHub Pages and containerized ASP.NET backend through Docker + Render
                 </li>
               </ul>
 
@@ -160,8 +162,8 @@ export default function SoftwareSection() {
                     color="text.secondary"
                     sx={{ mb: 3, lineHeight: 1.6 }}
                   >
-                    Frontend deployed through GitHub Pages with a separately hosted
-                    ASP.NET backend deployed using Docker and Render.
+                    Frontend deployed through GitHub Pages with a separately hosted Dockerized ASP.NET backend and 
+                    PostgreSQL persistence layer deployed on Render.
                   </Typography>
 
                   <Stack spacing={1.5}>
@@ -210,9 +212,9 @@ export default function SoftwareSection() {
               lineHeight: 1.7,
             }}
           >
-            Demonstrates full-stack architecture, backend API development,
-            authentication and authorization systems, relational database design, ORM usage,
-            containerized deployment workflows, and modern frontend/backend integration.
+            Demonstrates full-stack system architecture, secure API development, authentication and authorization 
+            workflows, relational database design, ORM integration, audit logging systems, containerized deployment 
+            pipelines, and modern frontend/backend application patterns.
           </Typography>
 
         </CardContent>
