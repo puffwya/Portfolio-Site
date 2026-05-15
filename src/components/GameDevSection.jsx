@@ -144,7 +144,7 @@ gameplay.
           <Box sx={{ mt: 2 }}>
             <Button
               variant="contained"
-              href="https://puffwya.github.io/Basic_Chess_Engine/"
+              href="https://puffwya.github.io/Chess_Engine/"
               target="_blank"
             >
               Play Live
@@ -188,7 +188,7 @@ gameplay.
               <Button
                 size="small"
                 variant="outlined"
-                href="https://puffwya.github.io/Basic_Pong_Game/"
+                href="https://puffwya.github.io/Pong_Game/"
                 target="_blank"
                 sx={{ mt: 1 }}
               >
